@@ -26,13 +26,9 @@ This project, in collaboration with Omdena Kutch, India chapter, aims to enhance
 
 ```
 ├── ./
-│   ├── .DS_Store
 │   ├── requirements.txt
-│   ├── .dagshub.yaml
 │   ├── README.md
-│   ├── create_readme.py
 │   ├── data/
-│   │   ├── .DS_Store
 │   │   ├── Complete_Plant_Data_preprocess V2.csv
 │   │   ├── cleaned_soil_data.csv
 │   │   ├── worldclim/
@@ -43,10 +39,8 @@ This project, in collaboration with Omdena Kutch, India chapter, aims to enhance
 │   │   │   ├── wc2.1_10m_tmin_12.tif
 │   ├── src/
 │   │   ├── run.py
-│   │   ├── .DS_Store
 │   │   ├── __init__.py
 │   │   ├── app/
-│   │   │   ├── .DS_Store
 │   │   │   ├── main.py
 │   │   │   ├── utils/
 │   │   │   │   ├── helpers.py
