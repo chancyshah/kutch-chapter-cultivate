@@ -56,7 +56,7 @@ This project, in collaboration with Omdena Kutch, India chapter, aims to enhance
 
 1. Clone the repository:
    ```
-   git clone [repository URL]
+   git clone https://github.com/chancyshah/kutch-chapter-cultivate.git
    ```
 2. Install dependencies:
    ```
