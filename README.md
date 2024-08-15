@@ -25,31 +25,27 @@ This project, in collaboration with Omdena Kutch, India chapter, aims to enhance
 
 
 ```
-├── ./
-│   ├── requirements.txt
-│   ├── README.md
-│   ├── data/
-│   │   ├── Complete_Plant_Data_preprocess V2.csv
-│   │   ├── cleaned_soil_data.csv
-│   │   ├── worldclim/
-│   │   │   ├── wc2.1_10m_tmin_01.tif
-│   │   │   ├── wc2.1_10m_tmin_02.tif
-│   │   │   ├── ..
-│   │   │   ├── wc2.1_10m_tmin_11.tif
-│   │   │   ├── wc2.1_10m_tmin_12.tif
-│   ├── src/
-│   │   ├── run.py
-│   │   ├── __init__.py
-│   │   ├── app/
-│   │   │   ├── main.py
-│   │   │   ├── utils/
-│   │   │   │   ├── helpers.py
-│   │   │   ├── pages/
-│   │   │   │   ├── home.py
-│   │   │   │   ├── about.py
-│   │   ├── api/
-│   │   │   ├── models.py
-│   │   │   ├── main.py
+├── requirements.txt
+├── README.md
+├── run.py
+├── __init__.py
+├── app/
+│   ├── main.py
+│   ├── utils/
+│   │   └── helpers.py
+│   └── pages/
+│       ├── home.py
+│       └── about.py
+├── api/
+│   ├── models.py
+│   └── main.py
+└── data/
+    ├── Complete_Plant_Data_preprocess V2.csv
+    ├── cleaned_soil_data.csv
+    └── worldclim/
+        ├── wc2.1_10m_tmin_01.tif
+        ├── wc2.1_10m_tmin_02.tif
+        └── ...
 ```
 
 ## Setup and Installation
