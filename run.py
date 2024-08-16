@@ -5,7 +5,7 @@ def run_fastapi():
     subprocess.run([sys.executable, "-m", "uvicorn", "api.main:app", "--reload", "--port", "0"])
 
 def run_streamlit():
-    subprocess.run([sys.executable, "-m", "streamlit", "run", "/app/main.py", "--server.port", "0"])
+    subprocess.run([sys.executable, "-m", "streamlit", "run", "app/main.py", "--server.port", "0"])
 
 if __name__ == "__main__":
     import threading
