@@ -68,9 +68,14 @@ def search_plants(location, sunlight, garden_type, spread):
         results = response.json()
         logger.debug(f"API returned {len(results)} results")
         return results
+    except requests.exceptions.ConnectionError as e:
+        logger.error(f"Connection error: {str(e)}")
+        st.error("Unable to connect to the plant search service. Please ensure the backend is running.")
+        return None
     except requests.RequestException as e:
         logger.error(f"An error occurred while fetching plant recommendations: {str(e)}")
         if hasattr(e, 'response') and e.response is not None:
             logger.error(f"Response status code: {e.response.status_code}")
             logger.error(f"Response content: {e.response.content}")
+        st.error("An error occurred while searching for plants. Please try again later.")
         return None

@@ -38,6 +38,10 @@ worldclim_files = []
 
 app = FastAPI()
 
+@app.get("/health")
+async def health_check():
+    return {"status": "healthy"}
+
 # Load the CSV file
 df = pd.read_csv('data/Complete_Plant_Data_preprocess V2.csv')
 
