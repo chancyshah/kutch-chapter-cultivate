@@ -2,17 +2,10 @@ import subprocess
 import sys
 
 def run_streamlit():
-    try:
-        subprocess.run([sys.executable, "-m", "streamlit", "run", "app/main.py"], check=True)
-    except subprocess.CalledProcessError as e:
-        print(f"Error running Streamlit: {e}")
+    subprocess.run([sys.executable, "-m", "streamlit", "run", "app/main.py"])
 
 def run_fastapi():
-    try:
-        subprocess.run([sys.executable, "-m", "uvicorn", "api.main:app", "--reload", "--host", "0.0.0.0"])
-    except subprocess.CalledProcessError as e:
-        print(f"Error running FastAPI: {e}")
-
+    subprocess.run([sys.executable, "-m", "uvicorn", "api.main:app", "--reload", "--port", "8001"])
 
 if __name__ == "__main__":
     import threading
