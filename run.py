@@ -2,7 +2,7 @@ import subprocess
 import sys
 
 def run_fastapi():
-    subprocess.run([sys.executable, "-m", "uvicorn", "api.main:app", "--reload", "--port", "8001"])
+    subprocess.run([sys.executable, "-m", "uvicorn", "api.main:app", "--reload", "--port", "8002"])
 
 def run_streamlit():
     subprocess.run([sys.executable, "-m", "streamlit", "run", "app/main.py"])
