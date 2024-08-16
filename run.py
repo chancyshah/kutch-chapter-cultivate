@@ -2,10 +2,10 @@ import subprocess
 import sys
 
 def run_streamlit():
-    subprocess.run([sys.executable, "-m", "streamlit", "run", "app/main.py", "--server.port", "8504"])
+    subprocess.run([sys.executable, "-m", "uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8002"])
 
 def run_fastapi():
-    subprocess.run([sys.executable, "-m", "uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8002", "--reload"])
+    subprocess.run([sys.executable, "-m", "streamlit", "run", "app/main.py", "--server.port", "8504", "--server.runOnSave", "false"])
 
 if __name__ == "__main__":
     import threading
