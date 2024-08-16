@@ -3,7 +3,7 @@ import sys
 
 def run_streamlit():
     print("Starting Streamlit...")
-    subprocess.run([sys.executable, "-m", "streamlit", "run", "app/main.py"])
+    subprocess.run([sys.executable, "-m", "streamlit", "run", "app/main.py", "--server.port", "8502"])
 
 def run_fastapi():
     print("Starting FastAPI...")
