@@ -9,7 +9,7 @@ def run_streamlit():
 
 def run_fastapi():
     try:
-        subprocess.run([sys.executable, "-m", "uvicorn", "api.main:app", "--reload"], check=True)
+        subprocess.run([sys.executable, "-m", "uvicorn", "api.main:app", "--reload", "--port", "8001"])
     except subprocess.CalledProcessError as e:
         print(f"Error running FastAPI: {e}")
 
