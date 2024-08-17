@@ -10,6 +10,7 @@ from app.pages import home, about
 
 st.set_page_config(layout="wide", page_title="Urban Garden Plant Finder - Omdena (Kutch, India)")
 
+
 # Custom CSS to improve the look and feel
 st.markdown("""
 <style>
@@ -38,21 +39,22 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+# Get the backend URL from environment variable
+BACKEND_URL = os.environ.get("BACKEND_URL")
+
+if not BACKEND_URL:
+    st.error("BACKEND_URL environment variable is not set. Please set it and restart the application.")
+    st.stop()
+
 def main():
     st.markdown('<p class="big-font">Urban Garden Plant Finder - Omdena (Kutch, India)</p>', unsafe_allow_html=True)
 
-    with st.sidebar:
-        selected = option_menu(
-            menu_title="Navigation",
-            options=["Home", "About"],
-            icons=["house", "info-circle"],
-            menu_icon="cast",
-            default_index=0,
-        )
+    # Pass the BACKEND_URL to the pages that need it
+    page = st.sidebar.selectbox("Pages", ["Home", "About"])
 
-    if selected == "Home":
-        home.show()
-    elif selected == "About":
+    if page == "Home":
+        home.show(BACKEND_URL)
+    elif page == "About":
         about.show()
 
 if __name__ == "__main__":

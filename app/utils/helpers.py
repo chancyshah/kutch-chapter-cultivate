@@ -51,11 +51,11 @@ def create_map(lat, lon):
     folium.Marker([lat, lon]).add_to(m)
     return m
 
-def search_plants(location, sunlight, garden_type, spread):
+def search_plants(backend_url, location, sunlight, garden_type, spread):
     logger.debug(f"Searching plants with params: location={location}, sunlight={sunlight}, garden_type={garden_type}, spread={spread}")
     try:
         response = requests.post(
-            "http://localhost:8000/search_plants",
+            f"{backend_url}/search_plants",
             json={
                 "location": location,
                 "sunlight": sunlight,
@@ -68,14 +68,6 @@ def search_plants(location, sunlight, garden_type, spread):
         results = response.json()
         logger.debug(f"API returned {len(results)} results")
         return results
-    except requests.exceptions.ConnectionError as e:
-        logger.error(f"Connection error: {str(e)}")
-        st.error("Unable to connect to the plant search service. Please ensure the backend is running.")
-        return None
-    except requests.RequestException as e:
+    except requests.exceptions.RequestException as e:
         logger.error(f"An error occurred while fetching plant recommendations: {str(e)}")
-        if hasattr(e, 'response') and e.response is not None:
-            logger.error(f"Response status code: {e.response.status_code}")
-            logger.error(f"Response content: {e.response.content}")
-        st.error("An error occurred while searching for plants. Please try again later.")
         return None

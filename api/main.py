@@ -37,6 +37,8 @@ logger = logging.getLogger(__name__)
 worldclim_files = []
 
 app = FastAPI()
+port = int(os.environ.get("PORT", 8000))
+
 
 @app.get("/health")
 async def health_check():
@@ -220,4 +222,4 @@ if __name__ == "__main__":
     print("Available routes:")
     for route in app.routes:
         print(f"  {route.methods} {route.path}")
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=port)

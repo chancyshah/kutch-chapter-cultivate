@@ -29,8 +29,7 @@ def get_wiki_image(search_term):
         logger.error(f"Error fetching image for {cleaned_term}: {str(e)}")
         return None
 
-def show():
-
+def show(backend_url):
     col1, col2 = st.columns([3, 2])
 
     with col1:
@@ -53,7 +52,6 @@ def show():
     with col2:
         st.markdown('<p class="medium-font">Plant Preferences</p>', unsafe_allow_html=True)
         
-        # Display preferences with empty option as default
         sunlight = st.selectbox("Select sunlight:", ["", "Full Sunlight", "Partial Shade", "Full Shade"])
         garden_type = st.selectbox("Select garden type:", ["", "City Courtyard", "Cottage/Informal", "Wildlife Garden"])
         spread = st.selectbox("Select spread:", ["", "0.1-0.5 meters", "0.5-1.0 meters", "1.0-1.5 meters"])
@@ -65,7 +63,7 @@ def show():
             st.error("Please select all plant preferences.")
         else:
             with st.spinner('Searching for plants...'):
-                plants = search_plants(location_input, sunlight, garden_type, spread)
+                plants = search_plants(backend_url, location_input, sunlight, garden_type, spread)
             if plants is not None:
                 if len(plants) > 0:
                     st.success(f"Found {len(plants)} matching plants!")
@@ -78,9 +76,12 @@ def show():
     st.markdown("""
     <p class='small-font'>
     This plant finder uses your location and preferences to recommend suitable plants for your urban garden. 
+    The suitability score indicates how well each plant matches your criteria. 
+    Images are sourced from Wikipedia and may not always be available or accurate.
     </p>
     """, unsafe_allow_html=True)
 
+    
 def display_plants(plants):
     st.markdown('<p class="medium-font">Recommended Plants</p>', unsafe_allow_html=True)
     
